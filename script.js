@@ -45,3 +45,29 @@ function drop(){
     this.className = 'content';
     this.append(selector);
 }
+
+let video=null;
+let canvas=null;
+let context= null;
+function start(){
+    canvas=document.getElementById("canvaCamera");
+    context = canvas.getContext("2d")
+    canvas.hight= window.innerHeight;
+    canvas.width= window.innerWidth;
+    let promise=navigator.mediaDevices.getUserMedia({video:true});
+    promise.then(function(signal){
+        video = document.createElement("video");
+        video.srcObject=signal;
+        video.play();
+        video.onloadeddata=function(){
+            updateCanavas();
+        }
+    }).catch(function(e){
+        alert("camera not working");
+    })
+}
+
+function updateCanavas(){
+    context.drawImage(video,0,0);
+    window.requestAnimationFrame(updateCanavas);
+}
