@@ -1,0 +1,29 @@
+body{
+    background: rgb(19, 184, 196);
+}
+.container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.fill{
+    background: linear-gradient(45deg,red,green);
+    width: 150px;
+    height: 150px;
+}
+.content{
+    background: rgb(173, 240, 245);
+    height: 150px;
+    width: 150px;
+    margin: 2px;
+
+}
+.border{
+    border: solid red 4px;
+}
+.displaynone{
+    display: none;
+}
+.enter{
+    border: dotted gray 5px;
+}
